@@ -1,15 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-danger text-white">
+                    <h5 class="mb-0">Удаление записи</h5>
+                </div>
+                <div class="card-body">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <p class="mb-3">для удаления сообщения <strong>{{ book.name }}</strong> введите вашу почту?</p>
+                        {% if error %}
+                            <div class="alert alert-danger">{{ error }}</div>
+                        {% endif %}
 
-    <form action="" method="post">
-        {% csrf_token %}
-        <p>для удаления сообщения {{ book.name }} введите вашу почту?</p>
-        {% if error %}
-            <div class="alert alert-danger">{{ error }}</div>
-        {% endif %}
+                        <div class="mb-3">
+                            <label for="check_delete" class="form-label">Email:</label>
+                            <input type="email" name="check_delete" id="check_delete" class="form-control" required>
+                        </div>
 
-        <input type="email" name="check_delete">
-        <a class="btn" href="{% url 'index' %}">Cancel</a>
-        <button class="btn" type="submit">Yes</button>
-    </form>
+                        <div class="d-flex gap-2">
+                            <a class="btn btn-secondary" href="{% url 'index' %}">Cancel</a>
+                            <button class="btn btn-danger" type="submit">Yes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

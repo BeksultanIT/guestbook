@@ -1,15 +1,21 @@
+{% load widget_tweaks %}
 {% csrf_token %}
 {% for error in form.non_field_errors %}
-   <p class="text-danger">{{ error }}</p>
+    <p class="text-danger">{{ error }}</p>
 {% endfor %}
 
 {% for field in book_form %}
-   <p><label for="{{ field.pk_for_label }}">{{ field.label }}</label></p>
-   {% for error in field.errors %}
-       <p class="text-danger">{{ error }}</p>
-   {% endfor %}
-   <p>{{ field }}</p>
+    <div class="mb-3">
+        <label for="{{ field.pk_for_label }}" class="form-label">{{ field.label }}</label>
+        {% for error in field.errors %}
+            <p class="text-danger">{{ error }}</p>
+        {% endfor %}
+        <p>{{ field|add_class:"form-control" }}</p>
+    </div>
 {% endfor %}
 
 
-<input type="submit" value="{{ button_text  }}"/>
+<div class="mt-4">
+    <input type="submit" value="{{ button_text }}" class="btn btn-primary me-2"/>
+    <a href="{% url 'index' %}" class="btn btn-secondary">Назад</a>
+</div>

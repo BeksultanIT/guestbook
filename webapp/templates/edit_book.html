@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Edit Book</h1>
-    <form action="" method="POST">
-    {% include 'partial/book_form.html' with button_text='Edit'%}
-    </form>
+    <div class="row">
+        <div class="col-lg-8">
+            <h1 class="mb-4">Edit Book</h1>
+            <form action="" method="POST">
+                {% include 'partial/book_form.html' with button_text='Edit' %}
+            </form>
+        </div>
+    </div>
 {% endblock %}

@@ -31,15 +31,15 @@ def create_book(request):
 def edit_book(request, *args, pk, **kwargs):
     book = get_object_or_404(Book, pk=pk)
     if request.method == "POST":
-        form = BookForm(request.POST, instance=book)
-        if form.is_valid():
-            form.save()
+        book_form = BookForm(request.POST, instance=book)
+        if book_form.is_valid():
+            book_form.save()
             return redirect('index')
         else:
-            return render(request, 'edit_book.html', {'form': form})
+            return render(request, 'edit_book.html', {'book_form': book_form})
     else:
-        form = BookForm(instance=book)
-        return render(request, 'edit_book.html', context={"form": form})
+        book_form = BookForm(instance=book)
+        return render(request, 'edit_book.html', context={"book_form": book_form})
 
 def delete_book(request, *args, pk, **kwargs):
     book = get_object_or_404(Book, pk=pk)
