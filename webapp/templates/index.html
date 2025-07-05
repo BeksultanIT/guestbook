@@ -38,4 +38,13 @@
             <p>No articles</p>
         {% endfor %}
     </div>
+
+
+
+
+    <h1>Create Book</h1>
+    <form action="{% url 'create_book' %}" method="POST">
+    {% include 'partial/book_form.html' with  form=book_form button_text='Create'%}
+    </form>
+
 {% endblock %}

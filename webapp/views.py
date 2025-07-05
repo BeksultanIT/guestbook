@@ -14,29 +14,27 @@ def index(request):
         search = form.cleaned_data.get('search')
         if search:
             books = books.filter(name__icontains=search)
-    return render(request, 'index.html', {'books': books,'form': form})
+    return render(request, 'index.html', {'books': books,'form': form, 'book_form': BookForm})
 
 def create_book(request):
     if request.method == 'POST':
-        form = BookForm(request.POST)
-        if form.is_valid():
-            book = form.save()
-            books = Book.objects.order_by('-created_at').filter(statuses='active')
-            return render(request, 'index.html', {'book': book, "books": books})
+        book_form = BookForm(request.POST)
+        if book_form.is_valid():
+            book_form.save()
+            return redirect('index')
         else:
-            return render(request, 'create_book.html', {'form': form})
+            return render(request, 'create_book.html', {'book_form': book_form})
     else:
-        form = BookForm()
-        return render(request, 'create_book.html', context={"form": form})
+        book_form = BookForm()
+        return render(request, 'create_book.html', context={"book_form": book_form})
 
 def edit_book(request, *args, pk, **kwargs):
     book = get_object_or_404(Book, pk=pk)
     if request.method == "POST":
         form = BookForm(request.POST, instance=book)
         if form.is_valid():
-            book = form.save()
-            books = Book.objects.order_by('-created_at').filter(statuses='active')
-            return render(request, 'index.html', {'book': book, "books": books})
+            form.save()
+            return redirect('index')
         else:
             return render(request, 'edit_book.html', {'form': form})
     else:
