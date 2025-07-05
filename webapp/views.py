@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 
-from webapp.forms import BookForm
+from webapp.forms import BookForm, SearchForm
 from webapp.models import Book
 
 
@@ -8,8 +8,13 @@ from webapp.models import Book
 
 
 def index(request):
+    form = SearchForm(request.GET or None)
     books = Book.objects.order_by('-created_at').filter(statuses='active')
-    return render(request, 'index.html', {'books': books})
+    if form.is_valid():
+        search = form.cleaned_data.get('search')
+        if search:
+            books = books.filter(name__icontains=search)
+    return render(request, 'index.html', {'books': books,'form': form})
 
 def create_book(request):
     if request.method == 'POST':
