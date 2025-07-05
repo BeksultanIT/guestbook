@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>для удаления сообщения {{ book.name }} введите вашу почту?</p>
+        {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+
+        <input type="email" name="check_delete">
+        <a class="btn" href="{% url 'index' %}">Cancel</a>
+        <button class="btn" type="submit">Yes</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Edit Book</h1>
+    <form action="" method="POST">
+    {% include 'partial/book_form.html' with button_text='Edit'%}
+    </form>
+{% endblock %}
