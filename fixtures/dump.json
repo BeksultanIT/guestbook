@@ -1,0 +1,74 @@
+[
+{
+  "model": "webapp.book",
+  "pk": 1,
+  "fields": {
+    "name": "Beksultan",
+    "email": "beksultan@gmail.com",
+    "text": "Cool place!",
+    "created_at": "2025-07-05T07:02:51.420Z",
+    "updated_at": "2025-07-05T07:02:51.420Z",
+    "statuses": "active"
+  }
+},
+{
+  "model": "webapp.book",
+  "pk": 2,
+  "fields": {
+    "name": "Sezim",
+    "email": "sezim@gmail.com",
+    "text": "we liked it",
+    "created_at": "2025-07-05T07:04:41.443Z",
+    "updated_at": "2025-07-05T07:04:41.443Z",
+    "statuses": "active"
+  }
+},
+{
+  "model": "webapp.book",
+  "pk": 3,
+  "fields": {
+    "name": "Emir",
+    "email": "emir@gmail.com",
+    "text": "beautiful place",
+    "created_at": "2025-07-05T07:05:24.342Z",
+    "updated_at": "2025-07-05T07:05:24.342Z",
+    "statuses": "active"
+  }
+},
+{
+  "model": "webapp.book",
+  "pk": 4,
+  "fields": {
+    "name": "Azamat",
+    "email": "azamat@gmail.com",
+    "text": "service not very good",
+    "created_at": "2025-07-05T07:06:10.726Z",
+    "updated_at": "2025-07-05T07:06:10.727Z",
+    "statuses": "blocked"
+  }
+},
+{
+  "model": "webapp.book",
+  "pk": 5,
+  "fields": {
+    "name": "Aron",
+    "email": "Aron@gmail.com",
+    "text": "very far and dirty",
+    "created_at": "2025-07-05T07:07:03.227Z",
+    "updated_at": "2025-07-05T07:07:03.227Z",
+    "statuses": "blocked"
+  }
+},
+{
+  "model": "webapp.book",
+  "pk": 6,
+  "fields": {
+    "name": "Aizada",
+    "email": "aizada@gmail.com",
+    "text": "good prices and nice view",
+    "created_at": "2025-07-05T07:08:37.185Z",
+    "updated_at": "2025-07-05T07:08:37.185Z",
+    "statuses": "active"
+  }
+}
+]
